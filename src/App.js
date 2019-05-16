@@ -7,19 +7,25 @@ class App extends Component {
   deleteHandler(msg) {
     alert(msg)
   }
-  render(){
-  let subscriber = [
-    {
-      "id"  : 1,
-      "name" : "deepak",
-      "number" : "9650268873"
-    },
-    {
-      "id": 2,
-      "name": "prashant",
-      "number": "9650265068"
+  constructor(){
+    super();
+    this.state = {
+      subscribers : []
     }
-  ]
+  }
+  render(){
+  // let subscriber = [
+  //   {
+  //     "id"  : 1,
+  //     "name" : "deepak",
+  //     "number" : "9650268873"
+  //   },
+  //   {
+  //     "id": 2,
+  //     "name": "prashant",
+  //     "number": "9650265068"
+  //   }
+  // ]
   return (
     <div>
         <Header heading="Phone Directory"/>
@@ -31,7 +37,7 @@ class App extends Component {
             <span className="grid-item phone-heading">Phone</span>
           </div>
         {
-          subscriber.map(sub=>{
+          this.state.subscribers.map(sub=>{
 
           return  (
             <div key={sub.id} className="grid-container">
