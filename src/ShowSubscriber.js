@@ -1,18 +1,38 @@
 import React, { Component } from 'react';
 import Header from './Header';
-import './style.css';
+import './ShowSubscriber.css';
 let x=1, y=4;
 
-class App extends Component {
+class ShowSubscriber extends Component {
   deleteHandler(msg) {
     alert(msg)
   }
-  constructor(){
-    super();
-    this.state = {
-      subscribers : []
-    }
-  }
+  // constructor(){
+  //   super();
+  //   this.state = {
+  //     subscribers : [{
+  //       id: 1,
+  //       name: 'deepak',
+  //       phone: '8888888 '
+  //     },
+  //   {
+  //     id: 2,
+  //     name: 'prashant',
+  //     phone: '99999999'
+  //   }]
+  //   }
+  // }
+  // componentDidMount(){
+  //   let newSubscriber = {
+  //     id : 1,
+  //     name : 'deepak',
+  //     phone : '888888888'
+  //   }
+  //   let subscriberList = this.state.subscribers;
+  //   subscriberList.push(newSubscriber);
+  //   this.setState(subscriberList);
+  //   console.log("mount called")
+  // }
   render(){
   // let subscriber = [
   //   {
@@ -37,12 +57,12 @@ class App extends Component {
             <span className="grid-item phone-heading">Phone</span>
           </div>
         {
-          this.state.subscribers.map(sub=>{
+          this.props.subscribersList.map(sub=>{
 
           return  (
             <div key={sub.id} className="grid-container">
           <span className="grid-item">{sub.name}</span>
-          <span className="grid-item">{sub.number}</span>
+          <span className="grid-item">{sub.phone}</span>
               <span className="grid-item action-btn-container">
                 <button className="custom-btn delete-btn" onClick={this.deleteHandler.bind(this, 'deleteHandler')}>Delete</button>
               </span>
@@ -56,7 +76,7 @@ class App extends Component {
   }
 }
 
-export default App;
+export default ShowSubscriber;
 // 
 //   <div className="form-group">
 //     <label htmlFor="name">Name :</label>
