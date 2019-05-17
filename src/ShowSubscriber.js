@@ -6,48 +6,12 @@ import {Link} from 'react-router-dom';
 let x=1, y=4;
 
 class ShowSubscriber extends Component {
-  deleteHandler(msg) {
-    alert(msg)
+  deleteHandler(subid) {
+    this.props.deleteSubscriberHandler(subid);
   }
-  // constructor(){
-  //   super();
-  //   this.state = {
-  //     subscribers : [{
-  //       id: 1,
-  //       name: 'deepak',
-  //       phone: '8888888 '
-  //     },
-  //   {
-  //     id: 2,
-  //     name: 'prashant',
-  //     phone: '99999999'
-  //   }]
-  //   }
-  // }
-  // componentDidMount(){
-  //   let newSubscriber = {
-  //     id : 1,
-  //     name : 'deepak',
-  //     phone : '888888888'
-  //   }
-  //   let subscriberList = this.state.subscribers;
-  //   subscriberList.push(newSubscriber);
-  //   this.setState(subscriberList);
-  //   console.log("mount called")
-  // }
+ 
   render(){
-  // let subscriber = [
-  //   {
-  //     "id"  : 1,
-  //     "name" : "deepak",
-  //     "number" : "9650268873"
-  //   },
-  //   {
-  //     "id": 2,
-  //     "name": "prashant",
-  //     "number": "9650265068"
-  //   }
-  // ]
+ 
   return (
     <div>
         <Header heading="Phone Directory"/>
@@ -66,7 +30,7 @@ class ShowSubscriber extends Component {
           <span className="grid-item">{sub.name}</span>
           <span className="grid-item">{sub.phone}</span>
               <span className="grid-item action-btn-container">
-                <button className="custom-btn delete-btn" onClick={this.deleteHandler.bind(this, 'deleteHandler')}>Delete</button>
+                <button className="custom-btn delete-btn" onClick={this.deleteHandler.bind(this, sub.id)}>Delete</button>
               </span>
         </div>)
             })
